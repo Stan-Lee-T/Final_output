@@ -11,7 +11,7 @@ class GUI:
         self.username_entry = None
         self.password_label = None
         self.username_label = None
-        self.save_button = None
+        self.login_button = None
         self.exit_button = None
         self.main_frame = None
         self.content_frame = tk.Frame(root, bg="gray")
@@ -20,11 +20,16 @@ class GUI:
     def Exit(self):
         exit()
 
-    def save(self):
-        print("Saved")
+    def login(self):
+        print("Login")
 
     def create_account(self):
-        Create_account.GUI.account_creation()
+        account_registration = Create_account.account_registration()
+        account_registration.create_account()
+        account_registration.content()
+        account_registration.buttons()
+        account_registration.labels()
+        account_registration.entries()
         self.content_frame.destroy()
 
     def frames(self):
@@ -34,10 +39,10 @@ class GUI:
     def buttons(self):
         self.exit_button = tk.Button(self.main_frame, width=15, height=2, text="C A N C E L", font=("arial", 12, "bold"), command=self.Exit, bg="#C5C6C7", relief="raised", borderwidth=10)
         self.exit_button.place(y=350, x=650)
-        self.save_button = tk.Button(self.main_frame, width=15, height=2, text="S A V E", font=("arial", 12, "bold"), command=self.save, bg="#C5C6C7", relief="raised", borderwidth=10)
-        self.save_button.place(y=350, x=425)
-        self.create_account_button = tk.Button(self.main_frame, width=15, height=2, text="C R E A T E  A N  A C C O U N T", font=("arial", 12, "bold"), command=create_account, bg="#C5C6C7", relief="raised", borderwidth=10)
-        self.create_account_button.place(y=350, x=425)
+        self.login_button = tk.Button(self.main_frame, width=15, height=2, text="L O G I N", font=("arial", 12, "bold"), command=self.login, bg="#C5C6C7", relief="raised", borderwidth=10)
+        self.login_button.place(y=350, x=425)
+        self.create_account_button = tk.Button(self.content_frame, width=30, height=2, text="C R E A T E  A N  A C C O U N T", font=("arial", 12, "bold"), command=self.create_account, bg="gray", relief="flat", borderwidth=0)
+        self.create_account_button.place(y=750, x=1025)
 
     def labels(self):
         self.username_label = tk.Label(self.main_frame, text="Username", font=("arial", 20), bg="#CDCDCD")
