@@ -4,6 +4,7 @@ import sqlite3
 
 class account_registration:
     def __init__(self):
+        self.Access = None
         self.save_button = None
         self.exit_button = None
         self.main_frame = None
@@ -39,9 +40,11 @@ class account_registration:
         con.execute(query)
         con.commit()
         con.close()
+        self.Access = tk.Label(self.main_frame, text="Saved!", font=("arial", 20), bg="#CDCDCD")
+        self.Access.place(y=325, x=50)
 
     def buttons(self):
-        self.exit_button = tk.Button(self.main_frame, width=15, height=2, text="E X I T", font=("arial", 12, "bold"), command=self.exit, bg="#C5C6C7", relief="raised", borderwidth=10)
+        self.exit_button = tk.Button(self.main_frame, width=15, height=2, text="C A N C E L", font=("arial", 12, "bold"), command=self.exit, bg="#C5C6C7", relief="raised", borderwidth=10)
         self.exit_button.place(y=350, x=650)
         self.save_button = tk.Button(self.main_frame, width=15, height=2, text="R E G I S T E R", font=("arial", 12, "bold"), command=self.save, bg="#C5C6C7", relief="raised", borderwidth=10)
         self.save_button.place(y=350, x=425)
