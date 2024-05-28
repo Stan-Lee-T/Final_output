@@ -1,7 +1,6 @@
 import tkinter as tk
 import sqlite3
 
-
 class account_registration:
     def __init__(self):
         self.Access = None
